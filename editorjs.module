@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for "editorjs" module.
+ */
+
+use Drupal\Component\Utility\NestedArray;
+use Drupal\editorjs\Element\EditorJs;
+
+/**
+ * Implements hook_theme().
+ */
+function editorjs_theme(): array {
+  return [
+    'editorjs' => [
+      'variables' => [
+        'data' => [],
+        'tools' => [],
+      ],
+    ],
+    'editorjs_paragraph' => [
+      'variables' => [
+        'data' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for "editorjs.html.twig" template.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - data: The source data from EditorJs.
+ */
+function template_preprocess_editorjs(array &$variables): void {
+  $data = $variables['data'];
+  $tunes = [];
+
+  foreach ($data as &$datum) {
+    $tunes = NestedArray::mergeDeepArray([$tunes, $datum['tunes'] ?? []], TRUE);
+
+    $datum = [
+      '#theme' => "editorjs_{$datum['type']}",
+      '#data' => $datum['data'],
+    ];
+  }
+
+  $variables['data'] = $data;
+
+  if (!empty($tunes)) {
+    $variables['#attached']['drupalSettings']['editorjs']['tunes'] = $tunes;
+  }
+
+  EditorJs::attachLibraries($variables, TRUE);
+}

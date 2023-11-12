@@ -1,0 +1,9 @@
+services:
+  plugin.manager.editorjs_tools:
+    class: Drupal\Core\Plugin\DefaultPluginManager
+    arguments:
+      - 'Plugin/EditorJsTools'
+      - '@container.namespaces'
+      - '@module_handler'
+      - 'Drupal\editorjs\Plugin\EditorJsTools\EditorJsToolsInterface'
+      - 'Drupal\editorjs\Annotation\EditorjsTools'

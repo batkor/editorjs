@@ -1,0 +1,58 @@
+field.field_settings.editorjs:
+  type: mapping
+  label: 'EditorJs field settings'
+  mapping:
+    tools:
+      type: sequence
+      label: 'EditorJs settings for tools'
+      sequence:
+        type: 'editorjs.tool_settings.[%key]'
+
+editorjs.tool_settings_base:
+  type: mapping
+  label: 'Tool configuration'
+  mapping:
+    status:
+      type: boolean
+      label: 'Status'
+
+editorjs.tool_settings.footnotes:
+  type: editorjs.tool_settings_base
+  label: 'Link tool settings'
+  mapping:
+    settings:
+      type: mapping
+      mapping:
+        placeholder:
+          type: string
+          label: 'Placeholder'
+
+editorjs.tool_settings.paragraph:
+  type: editorjs.tool_settings_base
+  label: 'Paragraph tool settings'
+  mapping:
+    settings:
+      type: mapping
+      mapping:
+        inlineToolbar:
+          type: boolean
+          label: 'The inline Toolbar status'
+        placeholder:
+          type: string
+          label: 'Placeholder'
+        preserveBlank:
+          type: boolean
+          label: 'Preserve blank'
+        tunes:
+          type: sequence
+          label: 'Tunes list'
+          sequence:
+            type: string
+
+field.value.editorjs:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    value:
+      type: string
+      label: 'Value'

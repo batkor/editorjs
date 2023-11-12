@@ -1,0 +1,10 @@
+name: Editorjs
+type: module
+description: The description.
+package: EditorJs
+core_version_requirement: ^9 || ^10
+
+php: 7.3
+
+dependencies:
+  - drupal:file

@@ -1,0 +1,31 @@
+init:
+  js:
+    assets/init.js: {}
+  dependencies:
+    - core/drupal
+    - editorjs/core
+
+footnotes:
+  version: 1.1.0
+  js:
+    assets/footnotes.min.js: { minified: true }
+
+footnotes.view:
+  css:
+    base:
+      assets/footnotes.view.css: { }
+  js:
+    assets/footnotes.view.js: { }
+  dependencies:
+    - core/drupalSettings
+    - editorjs/popperjs
+
+popperjs:
+  version: 2.x
+  js:
+    /libraries/popperjs/popper.min.js: { minified: true }
+
+core:
+  version: 2.19.1
+  js:
+    assets/editor.min.js: { minified: true }
