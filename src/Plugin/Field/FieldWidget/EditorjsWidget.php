@@ -57,7 +57,7 @@ class EditorjsWidget extends WidgetBase implements ContainerFactoryPluginInterfa
       }
 
       if (array_key_exists('tunes', $toolConfig['settings']) && is_array($toolConfig['settings']['tunes'])) {
-        $toolConfig['settings']['tunes'] = array_values($toolConfig['settings']['tunes']);
+        $toolConfig['settings']['tunes'] = array_values(array_filter($toolConfig['settings']['tunes']));
       }
 
       $tools[$toolId] = $toolConfig['settings'];

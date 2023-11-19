@@ -5,6 +5,7 @@
  * Primary module hooks for "editorjs" module.
  */
 
+use Drupal\Component\Utility\Html;
 use Drupal\Component\Utility\NestedArray;
 use Drupal\editorjs\Element\EditorJs;
 
@@ -12,19 +13,42 @@ use Drupal\editorjs\Element\EditorJs;
  * Implements hook_theme().
  */
 function editorjs_theme(): array {
-  return [
-    'editorjs' => [
-      'variables' => [
-        'data' => [],
-        'tools' => [],
-      ],
-    ],
-    'editorjs_paragraph' => [
-      'variables' => [
-        'data' => [],
-      ],
+  $defs = \Drupal::service('plugin.manager.editorjs_tools')
+    ->getDefinitions();
+  $themes['editorjs'] = [
+    'variables' => [
+      'data' => [],
+      'tools' => [],
     ],
   ];
+  $moduleExtension = \Drupal::service('extension.list.module');
+  $moduleHandler = \Drupal::moduleHandler();
+
+  foreach ($defs as $def) {
+    if (empty($def['register_theme'])) {
+      continue;
+    }
+
+    // Not register theme if provides not exist.
+    if (empty($def['provider']) || !$moduleHandler->moduleExists($def['provider'])) {
+      continue;
+    }
+
+    $theme = empty($def['theme']) ? "editorjs_{$def['id']}" : $def['theme'];
+    $theme = preg_replace([
+      '/^[0-9]/',
+      '/^(-[0-9])|^(--)/',
+    ], ['_', '__'], $theme);
+    $moduleDir = $moduleExtension->getPath($def['provider']);
+    $themes[$theme] = [
+      'variables' => [
+        'data' => [],
+      ],
+      'path' => "$moduleDir/templates",
+    ];
+  }
+
+  return $themes;
 }
 
 /**

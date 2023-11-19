@@ -6,24 +6,24 @@ namespace Drupal\editorjs\Plugin\EditorJsTools;
  * Plugin implementation of the editorjs_tools.
  *
  * @EditorJsTools(
- *   id = "footnotes",
- *   implementer = "FootnotesTune",
- *   label = @Translation("Footnotes"),
- *   description = @Translation("Provides footnotes tool."),
- *   tune = TRUE,
- *   register_theme = FALSE,
+ *   id = "code",
+ *   implementer = "CodeTool",
+ *   label = @Translation("Code tool"),
+ *   description = @Translation("Provides code tool."),
  * )
  */
-class FootnotesTool extends EditorJsToolsPluginBase implements EditorJsToolsInterface {
+class CodeTool extends EditorJsToolsPluginBase implements EditorJsToolsInterface {
 
   /**
    * {@inheritdoc}
    */
   public function settingsForm(array $settings = []): array {
+    $elements = parent::settingsForm($settings);
+
     $elements['placeholder'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Placeholder'),
-      '#default_value' => $settings['placeholder'] ?? '',
+      '#default_value' => $settings['placeholder'] ?? $this->t('Enter a code'),
     ];
 
     return $elements;
@@ -33,14 +33,14 @@ class FootnotesTool extends EditorJsToolsPluginBase implements EditorJsToolsInte
    * {@inheritdoc}
    */
   public function getWidgetLibraries(): array {
-    return ['editorjs/footnotes.widget'];
+    return ['editorjs/code.widget'];
   }
 
   /**
    * {@inheritdoc}
    */
   public function getViewLibraries(): array {
-    return ['editorjs/footnotes.view'];
+    return ['editorjs/code.view'];
   }
 
 }

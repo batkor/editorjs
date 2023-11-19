@@ -42,4 +42,18 @@ class EditorJsTools extends Plugin {
    */
   public bool $tune;
 
+  /**
+   * Register a theme automatically if TRUE.
+   *
+   * Default value TRUE.
+   */
+  public bool $register_theme;
+
+  /**
+   * The optional theme name uses for renders editorjs plugin.
+   *
+   * Default use plugin ID.
+   */
+  public string $theme;
+
 }

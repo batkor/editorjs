@@ -1,21 +1,24 @@
 init:
   js:
-    assets/init.js: {}
+    assets/init.js:
+      minified: true
+      attributes:
+        defer: true
   dependencies:
     - core/drupal
     - editorjs/core
 
-footnotes:
+footnotes.view:
   version: 1.1.0
   js:
-    assets/footnotes.min.js: { minified: true }
+    assets/footnotes/footnotes.min.js: { minified: true }
 
-footnotes.view:
+footnotes.widget:
   css:
     base:
-      assets/footnotes.view.css: { }
+      assets/footnotes/footnotes.view.css: { }
   js:
-    assets/footnotes.view.js: { }
+    assets/footnotes/footnotes.view.js: { }
   dependencies:
     - core/drupalSettings
     - editorjs/popperjs
@@ -29,3 +32,13 @@ core:
   version: 2.19.1
   js:
     assets/editor.min.js: { minified: true }
+
+code.widget:
+  version: 2.0.0
+  js:
+    assets/code/code.min.js: { minified: true }
+
+code.view:
+  css:
+    base:
+      assets/code/code.css: { }
