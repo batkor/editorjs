@@ -1,0 +1,13 @@
+editorjs.image.file:
+  path: '/editorjs/image/file'
+  defaults:
+    _controller: '\Drupal\editorjs\Controller\ImageController::uploadFile'
+  requirements:
+    _permission: 'administer publications'
+
+editorjs.image.url:
+  path: '/editorjs/image/url'
+  defaults:
+    _controller: '\Drupal\editorjs\Controller\ImageController::uploadUrl'
+  requirements:
+    _permission: 'administer publications'

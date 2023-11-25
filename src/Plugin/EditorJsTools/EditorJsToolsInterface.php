@@ -3,6 +3,7 @@
 namespace Drupal\editorjs\Plugin\EditorJsTools;
 
 use Drupal\Component\Plugin\PluginInspectionInterface;
+use Drupal\Core\Field\FieldDefinitionInterface;
 
 /**
  * Interface for editorjs_tools plugins.
@@ -41,13 +42,15 @@ interface EditorJsToolsInterface extends PluginInspectionInterface {
   /**
    * Returns form elements for EditorJs toll settings.
    *
+   * @param \Drupal\Core\Field\FieldDefinitionInterface $definition
+   *   The field definition.
    * @param array $settings
    *   The saved settings.
    *
    * @return array
    *   The renderable form elements.
    */
-  public function settingsForm(array $settings = []): array;
+  public function settingsForm(FieldDefinitionInterface $definition, array $settings = []): array;
 
   /**
    * Returns the asset libraries attached to the tool plugin on widget.

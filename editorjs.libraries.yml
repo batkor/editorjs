@@ -8,12 +8,12 @@ init:
     - core/drupal
     - editorjs/core
 
-footnotes.view:
+footnotes.widget:
   version: 1.1.0
   js:
     assets/footnotes/footnotes.min.js: { minified: true }
 
-footnotes.widget:
+footnotes.view:
   css:
     base:
       assets/footnotes/footnotes.view.css: { }
@@ -42,3 +42,8 @@ code.view:
   css:
     base:
       assets/code/code.css: { }
+
+image.widget:
+  version: 2.9.0
+  js:
+    assets/image/image.min.js: { minified: true }

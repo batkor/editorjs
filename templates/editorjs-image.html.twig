@@ -1,0 +1,8 @@
+{% if data.caption %}
+  <figure>
+    <img src="{{ data.file.url }}" alt="{{ data.caption }}">
+    <figcaption>{{ data.caption }}</figcaption>
+  </figure>
+{% else %}
+  <img src="{{ data.file.url }}">
+{% endif %}
