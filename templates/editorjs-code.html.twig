@@ -1,4 +1,9 @@
-<p class="ce-code">
+{%
+  set classes = [
+    'ce-code',
+  ]
+%}
+<p {{ attributes.addClass(classes) }}>
   <code>
     {{ data.code|raw }}
   </code>

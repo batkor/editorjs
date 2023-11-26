@@ -2,6 +2,8 @@
 
 namespace Drupal\editorjs\Plugin\EditorJsTools;
 
+use Drupal\Core\Field\FieldDefinitionInterface;
+
 /**
  * Plugin implementation of the editorjs_tools.
  *
@@ -12,13 +14,13 @@ namespace Drupal\editorjs\Plugin\EditorJsTools;
  *   description = @Translation("Provides code tool."),
  * )
  */
-class CodeTool extends EditorJsToolsPluginBase implements EditorJsToolsInterface {
+class CodeTool extends EditorJsToolsPluginBase {
 
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $settings = []): array {
-    $elements = parent::settingsForm($settings);
+  public function settingsForm(FieldDefinitionInterface $definition, array $settings = []): array {
+    $elements = parent::settingsForm($definition, $settings);
 
     $elements['placeholder'] = [
       '#type' => 'textfield',

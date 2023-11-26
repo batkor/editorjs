@@ -3,6 +3,7 @@
 namespace Drupal\editorjs\Plugin\EditorJsTools;
 
 use Drupal\Component\Plugin\PluginBase;
+use Drupal\Core\Field\FieldDefinitionInterface;
 use Drupal\Core\Plugin\ContainerFactoryPluginInterface;
 use Drupal\Core\Plugin\DefaultPluginManager;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
@@ -62,8 +63,7 @@ abstract class EditorJsToolsPluginBase extends PluginBase implements EditorJsToo
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $settings = []): array {
-
+  public function settingsForm(FieldDefinitionInterface $definition, array $settings = []): array {
     $elements['inlineToolbar'] = [
       '#type' => 'checkbox',
       '#title' => $this->t('Inline toolbar'),

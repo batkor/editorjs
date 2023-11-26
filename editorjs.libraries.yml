@@ -1,4 +1,7 @@
 init:
+  css:
+    layout:
+      assets/editor.widget.css: { }
   js:
     assets/init.js:
       minified: true
@@ -8,12 +11,12 @@ init:
     - core/drupal
     - editorjs/core
 
-footnotes.view:
+footnotes.widget:
   version: 1.1.0
   js:
     assets/footnotes/footnotes.min.js: { minified: true }
 
-footnotes.widget:
+footnotes.view:
   css:
     base:
       assets/footnotes/footnotes.view.css: { }
@@ -29,7 +32,7 @@ popperjs:
     /libraries/popperjs/popper.min.js: { minified: true }
 
 core:
-  version: 2.19.1
+  version: 2.28.2
   js:
     assets/editor.min.js: { minified: true }
 
@@ -42,3 +45,13 @@ code.view:
   css:
     base:
       assets/code/code.css: { }
+
+image.widget:
+  version: 2.9.0
+  js:
+    assets/image/image.min.js: { minified: true }
+
+image.view:
+  css:
+    base:
+      assets/image/image.view.css: { }

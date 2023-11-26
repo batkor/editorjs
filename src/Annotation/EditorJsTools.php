@@ -46,6 +46,8 @@ class EditorJsTools extends Plugin {
    * Register a theme automatically if TRUE.
    *
    * Default value TRUE.
+   *
+   * @see \Drupal\editorjs\Plugin\EditorJsToolsPluginManager::__construct
    */
   public bool $register_theme;
 

@@ -2,6 +2,8 @@
 
 namespace Drupal\editorjs\Plugin\EditorJsTools;
 
+use Drupal\Core\Field\FieldDefinitionInterface;
+
 /**
  * Plugin implementation of the editorjs_tools.
  *
@@ -14,12 +16,12 @@ namespace Drupal\editorjs\Plugin\EditorJsTools;
  *   register_theme = FALSE,
  * )
  */
-class FootnotesTool extends EditorJsToolsPluginBase implements EditorJsToolsInterface {
+class FootnotesTool extends EditorJsToolsPluginBase {
 
   /**
    * {@inheritdoc}
    */
-  public function settingsForm(array $settings = []): array {
+  public function settingsForm(FieldDefinitionInterface $definition, array $settings = []): array {
     $elements['placeholder'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Placeholder'),

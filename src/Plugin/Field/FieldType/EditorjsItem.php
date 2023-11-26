@@ -100,7 +100,7 @@ class EditorjsItem extends FieldItemBase {
             ":input[name='settings[tools][{$pluginId}][status]']" => ['checked' => TRUE],
           ],
         ],
-      ] + $tool->settingsForm($settings[$pluginId]['settings'] ?? []);
+      ] + $tool->settingsForm($this->getFieldDefinition(), $settings[$pluginId]['settings'] ?? []);
     }
 
     return $element;
