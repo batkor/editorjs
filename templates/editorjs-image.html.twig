@@ -1,8 +1,20 @@
-{% if data.caption %}
-  <figure>
-    <img src="{{ data.file.url }}" alt="{{ data.caption }}">
-    <figcaption>{{ data.caption }}</figcaption>
-  </figure>
-{% else %}
-  <img src="{{ data.file.url }}">
-{% endif %}
+{%
+  set classes = [
+    'ce-image',
+    data.withBorder ? 'ce-image--with-border',
+    data.stretched ? 'ce-image--stretched',
+    data.withBackground ? 'ce-image--with-background',
+  ]
+%}
+<div {{ attributes.addClass(classes) }}>
+  <div class="ce-image__content">
+    <div class="ce-image__picture">
+      <img class="ce-image__img" src="{{ data.file.url }}" alt="{{ data.caption }}">
+    </div>
+    {% if data.caption %}
+      <div class="ce-image__caption">
+        {{ data.caption }}
+      </div>
+    {% endif %}
+  </div>
+</div>

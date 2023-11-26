@@ -23,8 +23,6 @@ class ImageTool extends EditorJsToolsPluginBase {
    * {@inheritdoc}
    */
   public function settingsForm(FieldDefinitionInterface $definition, array $settings = []): array {
-    $elements = parent::settingsForm($definition, $settings);
-
     $elements['config'] = [
       '#type' => 'container',
       '#tree' => TRUE,
@@ -98,6 +96,13 @@ class ImageTool extends EditorJsToolsPluginBase {
    */
   public function getWidgetLibraries(): array {
     return ['editorjs/image.widget'];
+  }
+
+  /**
+   * {@inheritdoc}
+   */
+  public function getViewLibraries(): array {
+    return ['editorjs/image.view'];
   }
 
 }
