@@ -1,0 +1,11 @@
+{%
+  set classes = [
+    'ce-list',
+  ]
+%}
+{% set tag = data.style == 'unordered' ? 'ul' : 'ol' %}
+<{{ tag}} {{ attributes.addClass(classes) }}>
+  {% for item in data.items %}
+  <li class="ce-list--item">{{ item }}</li>
+  {% endfor %}
+</{{ tag}}>

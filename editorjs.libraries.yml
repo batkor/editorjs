@@ -55,3 +55,13 @@ image.view:
   css:
     base:
       assets/image/image.view.css: { }
+
+list.widget:
+  version: 1.9.0
+  js:
+    assets/list/list.min.js: { minified: true }
+
+list.view:
+  css:
+    base:
+      assets/list/list.view.css: { }
