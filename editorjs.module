@@ -42,6 +42,7 @@ function editorjs_theme(): array {
     $moduleDir = $moduleExtension->getPath($def['provider']);
     $themes[$theme] = [
       'variables' => [
+        'attributes' => [],
         'data' => [],
       ],
       'path' => "$moduleDir/templates",

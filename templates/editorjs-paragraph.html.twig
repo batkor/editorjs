@@ -1,1 +1,6 @@
-<p class="ce-paragraph">{{ data.text|raw }}</p>
+{%
+  set classes = [
+    'ce-paragraph',
+  ]
+%}
+<p {{ attributes.addClass(classes) }}>{{ data.text|raw }}</p>
