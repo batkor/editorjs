@@ -1,4 +1,19 @@
 services:
+  logger.channel.editorjs:
+    parent: logger.channel_base
+    arguments: ['editorjs']
+
   plugin.manager.editorjs_tools:
     class: Drupal\editorjs\Plugin\EditorJsToolsPluginManager
     parent: default_plugin_manager
+
+  editorjs.file.upload_handler:
+    class: Drupal\editorjs\EditorJsFileUploadHandler
+    arguments:
+      - '@file.upload_handler'
+      - '@http_client'
+      - '@file.mime_type.guesser'
+      - '@current_user'
+      - '@event_dispatcher'
+      - '@file_system'
+      - '@stream_wrapper_manager'
